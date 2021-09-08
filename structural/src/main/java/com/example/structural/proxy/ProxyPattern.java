@@ -1,6 +1,6 @@
 package com.example.structural.proxy;
 
-public class ProxyPattern extends RealSubjectClass {
+public class ProxyPattern extends SubjectImpl {
     @Override
     public void method() {
         System.out.println("Hi I am Proxy i will perform authentication and security checks");
