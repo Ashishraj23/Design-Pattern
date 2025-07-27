@@ -5,10 +5,24 @@ public class SingletonPattern implements Cloneable {
     private SingletonPattern(){
 
     }
+//use anyone of them
+    //unsafe if multiple thread 
     public static SingletonPattern getInstance(){
         if(singletonPattern == null)
             return new SingletonPattern();
         else return singletonPattern;
+    }
+
+    //for thread safe
+    public static SingletonPattern getInstance(){
+        if (singletonPattern == null) {
+            synchronized (SingletonPattern.class) {
+                if (singletonPattern == null) {
+                    singletonPattern = new SingletonPattern();
+                }
+            }
+        }
+        return singletonPattern;
     }
 
     @Override
